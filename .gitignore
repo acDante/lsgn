@@ -22,3 +22,4 @@ scientifickg
 *.zip
 *.out
 srlconll-1.1
+venv
