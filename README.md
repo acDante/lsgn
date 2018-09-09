@@ -11,6 +11,7 @@ Part of the codebase is extended from [e2e-coref](https://github.com/kentonl/e2e
 * Python 2.7
 * TensorFlow 1.8.0
 * pyhocon (for parsing the configurations)
+* h5py
 * [tensorflow_hub](https://www.tensorflow.org/hub/) (for loading ELMo)
 
 ## Getting Started

@@ -1,1 +1,2 @@
-{"doc_key": "S0", "srl": [[], []], "sentences": [["John", "told", "Pat", "to", "stop", "the", "robot", "immediately", "."], ["Pat", "refused", "."]]}
+{"doc_key": "S0", "srl": [[]], "sentences": [["John", "told", "Pat", "to", "stop", "the", "robot", "immediately", "."]]}
+{"doc_key": "S1", "srl": [[]], "sentences": [["Pat", "refused", "."]]}
