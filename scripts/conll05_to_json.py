@@ -153,7 +153,7 @@ def handle_line(line, document_state, language, num_cols, labels, stats):
   # document_state.assert_empty()
   # return None
   row = line.split()
-  print(row)
+  print row
   # Starting a new sentence.
   if len(row) == 0:
     # First finalize sentence.
@@ -228,6 +228,7 @@ def minimize_partition(input_path, output_path, num_cols, labels, stats):
       document_state = DocumentState()
       document_state.doc_key = "S{}".format(count)
       for line in input_file.readlines():
+        print "Reach here!"
         document = handle_line(line, document_state, language, num_cols, labels, stats)
         if document is not None:
           output_file.write(json.dumps(document))
