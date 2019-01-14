@@ -124,6 +124,7 @@ def normalize_word(word, language):
 
 
 def handle_bit(word_index, bit, stack, spans, label_set):
+  print ("bit is:" + bit)
   asterisk_idx = bit.find("*")
   if asterisk_idx >= 0:
     open_parens = bit[:asterisk_idx]
@@ -144,6 +145,8 @@ def handle_bit(word_index, bit, stack, spans, label_set):
     current_idx = next_idx
 
   for c in close_parens:
+    print ("close_parens:= ")
+    print (c)
     assert c == ")"
     open_index, label = stack.pop()
     spans.append((open_index, word_index, label))
