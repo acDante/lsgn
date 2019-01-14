@@ -124,7 +124,6 @@ def normalize_word(word, language):
 
 
 def handle_bit(word_index, bit, stack, spans, label_set):
-  print ("bit is:" + bit)
   asterisk_idx = bit.find("*")
   if asterisk_idx >= 0:
     open_parens = bit[:asterisk_idx]
@@ -145,8 +144,6 @@ def handle_bit(word_index, bit, stack, spans, label_set):
     current_idx = next_idx
 
   for c in close_parens:
-    print ("close_parens:= ")
-    print (c)
     assert c == ")"
     open_index, label = stack.pop()
     spans.append((open_index, word_index, label))
@@ -156,7 +153,6 @@ def handle_line(line, document_state, language, num_cols, labels, stats):
   # document_state.assert_empty()
   # return None
   row = line.split()
-  print (row)
   # Starting a new sentence.
   if len(row) == 0:
     # First finalize sentence.
@@ -230,9 +226,7 @@ def minimize_partition(input_path, output_path, num_cols, labels, stats):
     with open(output_path, "w") as output_file:
       document_state = DocumentState()
       document_state.doc_key = "S{}".format(count)
-      print (input_file.readlines())
       for line in input_file.readlines():
-        print "Reach here!"
         document = handle_line(line, document_state, language, num_cols, labels, stats)
         if document is not None:
           output_file.write(json.dumps(document))
@@ -255,4 +249,3 @@ if __name__ == "__main__":
   #  print("{} = [{}]".format(k, ", ".join("\"{}\"".format(label) for label in v)))
   #for k, v in stats.items():
   #  print("{} = {}".format(k, v))
-
