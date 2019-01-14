@@ -153,6 +153,7 @@ def handle_line(line, document_state, language, num_cols, labels, stats):
   # document_state.assert_empty()
   # return None
   row = line.split()
+  print(row)
   # Starting a new sentence.
   if len(row) == 0:
     # First finalize sentence.
