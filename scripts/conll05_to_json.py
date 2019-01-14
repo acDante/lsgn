@@ -229,7 +229,9 @@ def minimize_partition(input_path, output_path, num_cols, labels, stats):
   with open(input_path, "r") as input_file:
     with open(output_path, "w") as output_file:
       document_state = DocumentState()
+      print "Reach here!  1 "
       document_state.doc_key = "S{}".format(count)
+      print "Reach here! 2"
       for line in input_file.readlines():
         print "Reach here!"
         document = handle_line(line, document_state, language, num_cols, labels, stats)
