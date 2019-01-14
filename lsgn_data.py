@@ -209,14 +209,15 @@ class LSGNData(object):
     lm_emb = load_lm_embeddings_for_sentence(
         self.lm_file, self.lm_layers, self.lm_size, lm_doc_key, lm_sent_key)
 
-    max_word_length = max(max(len(w) for w in sentence), max(self.config["filter_widths"]))
+    # max_word_length = max(max(len(w) for w in sentence), max(self.config["filter_widths"]))
+    max_word_length = max(max(len(str(w)) for w in sentence), max(self.config["filter_widths"]))
     context_word_emb = np.zeros([text_len, self.context_embeddings.size])
     head_word_emb = np.zeros([text_len, self.head_embeddings.size])
     char_index = np.zeros([text_len, max_word_length])
     for j, word in enumerate(sentence):
       context_word_emb[j] = self.context_embeddings[word]
       head_word_emb[j] = self.head_embeddings[word]
-      char_index[j, :len(word)] = [self.char_dict[c] for c in word]
+      char_index[j, :len(str(word))] = [self.char_dict[c] for c in str(word)]
     predicates, arg_starts, arg_ends, arg_labels = (
         tensorize_srl_relations(example["srl"], self.srl_labels,
                                 filter_v_args=self.config["filter_v_args"]))
